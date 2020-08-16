@@ -7,11 +7,13 @@
 {% block body_block %}
 
 <h2>Create a new account</h2>
-<form  method="POST">
-    {{form|crispy}}
-    {% csrf_token %}
+<form method="POST">
+  {{form|crispy}}
+  {% csrf_token %}
 
-    <button type="submit" class="btn btn-success btn-sm">Create Account</button>
+  <button type="submit" class="btn btn-success btn-sm">Create Account</button>
 </form>
+<br>
+<p>Already have an account? <a href="{% url 'App_Login:login'%}">Log In here</a> </p>
 
 {% endblock %}
