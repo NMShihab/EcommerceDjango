@@ -28,7 +28,7 @@ class MyUserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    
+
     def create_superuser(self, email,password,**extra_fields):
         extra_fields.setdefault('is_staff',True)
         extra_fields.setdefault('is_superuser',True)
@@ -62,10 +62,10 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.email
-    
+
     def get_full_name(self):
         return self.email
-    
+
     def get_short_name(self):
         return self.email
 
@@ -75,7 +75,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
     username = models.CharField(max_length=260,blank=True)
     full_name = models.CharField(max_length=500,blank=True)
-    address = models.CharField(max_length=600,blank=True)
+    address = models.TextField(max_length=600,blank=True)
     city = models.CharField(max_length=50,blank=True)
     zipcode = models.CharField(max_length=10,blank=True)
     country = models.CharField(max_length=50,blank=True)
@@ -84,7 +84,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.username + " 's Profile"
-    
+
     def is_fully_filled(self):
         fields_names = [f.name for f in self._meta.get_fields()]
 
@@ -92,7 +92,7 @@ class UserProfile(models.Model):
             value = getattr(self , fields_name)
             if value is None or value == '':
                 return False
-        
+
         return True
 
 
