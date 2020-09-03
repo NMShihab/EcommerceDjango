@@ -29,7 +29,61 @@
   <link rel="stylesheet" href="{% static "css/owl.carousel.min.css" %}" type="text/css">
   <link rel="stylesheet" href="{% static "css/slicknav.min.css" %}" type="text/css">
   <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
+  <style>
+    .card {
+      height: 300px;
+    }
 
+    .card-product:after {
+      content: "";
+      display: table;
+      clear: both;
+      visibility: hidden;
+    }
+
+    .card-product .img-wrap {
+      border-radius: 3px 3px 0 0;
+      overflow: hidden;
+      position: relative;
+      height: 220px;
+      text-align: center;
+    }
+
+    .card-product .img-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+
+    }
+
+    .card-product .price_new {
+      margin-right: 5px;
+    }
+
+    .card-product .price {
+      margin-right: 5px;
+    }
+
+    .card-product .wrap-info {
+      overflow: hidden;
+      padding: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .card-product .action-wrap {
+      padding-top: 4px;
+      margin-top: 4px;
+    }
+
+    .card-product .bottom-wrap {
+      padding: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .card-product .title {
+      margin-top: 0px;
+    }
+  </style>
 
 
 
