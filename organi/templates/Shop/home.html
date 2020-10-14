@@ -13,7 +13,11 @@
           />
         </div>
         <figcaption class="wrap-info">
-          <h6><a href="#">{{product.name}}</a></h6>
+          <h6>
+            <a href="{% url 'Shop:detail' pk=product.pk %}">
+              {{product.name}}
+            </a>
+          </h6>
           <div class="action-wrap">
             <div class="price-wrap h5">
               <span class="price_new"
