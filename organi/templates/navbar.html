@@ -6,13 +6,18 @@
 
   <div class="collapse navbar-collapse" id="navbarnav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item"><i class="fa fa-shopping-cart"></i> Cart</li>
-
       {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a href="" class="nav-link"> 
+          <i class="fa fa-shopping-cart"></i> Cart
+        </a>
+      </li>
+
+      
       <li class="nav-item submenu dropdown">
-         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i>{{request.user.username}}</a>
+         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i>{{request.user.profile.username}}</a>
         <ul class="dropdown-menu">
-            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'App_Login:profile'%}">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Edit Profile</a></li>
             <div class="dropdown-divider"></div>
             <li class="nav-item"><a class="nav-link" href="{% url 'App_Login:logout'%}">Log Out</a></li>
@@ -20,7 +25,7 @@
       </li>
       {% else %}
         <li class="nav-item">
-          <a href="{% url 'App_Login:login'%}">Signin</a>
+          <a class="btn btn-primary" href="{% url 'App_Login:login'%}">Signin</a>
         </li>
         {% endif %}
     </ul>
